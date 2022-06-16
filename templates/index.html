@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estimation of Pi using Monte carlo simulations</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+</head>
+
+
+<body>
+    <div class="center-container">
+        <h1>
+            Value of pi using Monte-Carlo simulation
+        </h1>
+        <h5>Author: Nohan Joemon</h5>
+        <h5>Topics: Probability, Monte-Carlo simulations</h5>
+            <h2>
+                About the project:
+            </h2>
+            <div style='display:flex'>
+                <img class="mainimage" src="{{ url_for('static', filename='mainimg.jpg') }}">
+                <div>
+                    <p class="about">
+                        &nbsp;&nbsp; This project is an illustration of finding the value of pi using Monte-Carlo simulation. Monte-Carlo simulation 
+                        relies on repeated random sampling to obtain numerical results. In this case, we consider all points (x,y) that lie in the square
+                        marked by (-1,-1),(-1,1),(1,-1) and (1,1). Now. consider the unit circle centred at the origin. If we consider a random point inside 
+                        the square, the probability that it lies inside the circle is given by π r<sup>2</sup> / a<sup>2</sup>. Here, a=2 and r=1, hence the probability is π/4.
+                        To simulate this probability, we consider a large number of points inside the square and find the fraction of points that lie within the circle. 
+                        This fraction is multiplied with 4 to give an estimate for pi. The accuracy of the estimate increases as we consider more points
+                        <br><br>
+                        &nbsp;&nbsp; In the section below, you can estimate the value of pi by taking a large number of sample points. From the graph, we can see that it
+                        converges around 3.14.
+                        The codes for the development and deployment of this website are given in the following repository: 
+                        <br>
+                    </p>
+                    <div style="text-align: center;margin-top:15px;" >
+                        
+                        <a class="github" style="  text-decoration-line: None;" target="_blank" href="https://github.com/NohanJoemon/IPL-powerplay-predictions-using-ML"><i style="font-size:20px;" class="fa fa-github"></i>  Github link </a>
+                        <p>                        (Feel free to fork the repository and give your suggestions)</p>
+                    </div>
+                </div>
+               
+            </div>
+
+        
+    
+            <h2>
+                Test using your inputs :
+            </h2>
+                <form action="/" method="POST">
+                {%if selected==None%}   
+                    <!-- Num -->
+                    <label for="num">Number of points to be considered (should be high for better accuracy):</label>
+                    <input type="text" name="num">
+                    <br>
+                    <center><input class="submit-btn" type="submit" value="Estimate the value of π"></center>
+                 {%else%}
+                    <!-- Num -->
+                    <label for="num">Number of points to be considered (should be high for better accuracy):</label>
+                    <input type="text" name="num" value="{{selected}}">
+                    <br>
+                    <center><input class="submit-btn" type="submit" value="Estimate the value of π"></center>
+                 {%endif%}
+                </form>
+            {% if pi %}
+            <div>
+                <h2>
+                    Estimated value of pi: {{pi}} after considering {{selected}} points
+                </h2>
+                <img src = "{{ url_for('static', filename='g.png') }}">
+            </div>
+            {%endif%}
+    </div>
+    
+
+
+</body>
+
+
+</html>
