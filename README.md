@@ -6,6 +6,6 @@
 
 
 ## Website preview:
-link: https://pi-monte-carlo-simulation.herokuapp.com/
+https://pi-monte-carlo-simulation.herokuapp.com/
 
-![image](https://user-images.githubusercontent.com/62956111/174019261-a00e75c8-f1fd-4dc4-ba35-151cd1294f6e.png)
+![image](https://user-images.githubusercontent.com/62956111/174020347-d6e29a3d-c44c-4594-a63a-b15033d18591.png)
